@@ -1,5 +1,7 @@
 package step02;
 /*
+부족한 금액 계산하기
+
 새로 생긴 놀이기구는 인기가 매우 많아 줄이 끊이질 않습니다.
 이 놀이기구의 원래 이용료는 price원 인데, 놀이기구를 N 번 째 이용한다면 원래 이용료의 N배를 받기로 하였습니다.
 즉, 처음 이용료가 100이었다면 2번째에는 200, 3번째에는 300으로 요금이 인상됩니다.
@@ -21,3 +23,25 @@ public class java05_82612 {
         return answer;
     }
 }
+
+/*
+팀코드
+1.
+public long solution(long price, long money, long count) {
+        long answer = count * (count+1) / 2 * price;
+
+        return answer > money ? answer - money : 0;
+    }
+
+2.
+public long solution(int price, int money, int count) {
+        long totPrice = 0;
+
+        for(int i = 1; i <= count; i++){
+            totPrice += price * i;
+        }
+
+        // 둘 중 더 큰 수를 리턴
+        return Math.max(totPrice - money,0);
+    }
+ */
