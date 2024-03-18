@@ -3,7 +3,10 @@ package step06;
 개인정보 수집 유효기간
  */
 import java.util.*;
-
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.Collections;
+//import java.util.List;
 public class java01_150370 {
     public static void main(String[] args) {
         String today = "2020.01.01";
@@ -14,14 +17,14 @@ public class java01_150370 {
     }
 
     public static int[] solution(String today, String[] terms, String[] privacies) {
-        String[] str = new String[] {today.split("\\.")[0], today.split("\\.")[1], today.split("\\.")[2]};
-        int[] todayList = new int[] {Integer.parseInt(str[0]), Integer.parseInt(str[1]), Integer.parseInt(str[2])};
+        String[] str = today.split("\\.");
+        int[] todayList = {Integer.parseInt(str[0]), Integer.parseInt(str[1]), Integer.parseInt(str[2])};
         List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < privacies.length; i++) {
-            int[] date = new int[] {Integer.parseInt(privacies[i].split(" ")[0].split("\\.")[0]), Integer.parseInt(privacies[i].split(" ")[0].split("\\.")[1]), Integer.parseInt(privacies[i].split(" ")[0].split("\\.")[2])};
+            String[] s = privacies[i].split(" ")[0].split("\\.");
+            int[] date = {Integer.parseInt(s[0]), Integer.parseInt(s[1]), Integer.parseInt(s[2])};
             String privacy = privacies[i].split(" ")[1];
-            System.out.println(Arrays.toString(date));
 
             for (int j = 0; j < terms.length; j++) {
                 String kind = terms[j].split(" ")[0];
@@ -53,5 +56,10 @@ public class java01_150370 {
 
 /*
 1.
-int[] answer = list.stream().mapToInt(i->i).toArray();
+int[] todayList = new int[] {Integer.parseInt(today.split("\\.")[0]), Integer.parseInt(today.split("\\.")[1]), Integer.parseInt(today.split("\\.")[2])};
+int[] date = new int[] {Integer.parseInt(privacies[i].split(" ")[0].split("\\.")[0]), Integer.parseInt(privacies[i].split(" ")[0].split("\\.")[1]), Integer.parseInt(privacies[i].split(" ")[0].split("\\.")[2])};
+
+2.
+String[] str = new String[] {today.split("\\.")[0], today.split("\\.")[1], today.split("\\.")[2]};
+int[] todayList = new int[] {Integer.parseInt(str[0]), Integer.parseInt(str[1]), Integer.parseInt(str[2])};
  */
